@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="body">
+    <div class="head">
+      <div id="app">
+        <product-registration :products.sync="products" />
+        <calculate-price-each-person-from-products :products="products" />
+      </div>
+    </div>
   </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import ProductRegistration from "@/components/ProductRegistration";
+import CalculatePriceEachPersonFromProducts from "@/components/CalculatePriceEachPersonFromProducts";
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: {CalculatePriceEachPersonFromProducts, ProductRegistration},
+  data() {
+    return {
+      products: []
+    }
+  },
+  methods: {},
+  computed: {}
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+ .body{
+   height: 800px;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   background-image: linear-gradient(dodgerblue, #ccc);
+ }
+ .head{
+   width: 80%;
+ }
 </style>
